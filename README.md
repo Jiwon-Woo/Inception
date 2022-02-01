@@ -46,7 +46,7 @@ Introduction
 소개
 
 - This project aims to broaden your knowledge of system administration by using Docker. You will virtualize several Docker images, creating them in your new personal virtual machine.
-- 이 프로젝트는 도커를 사용해서 시스템 관리에 대한 지식을 넓히는 것이 목표입니다. 새로운 가상 머신에서 여러 도커 이미지를 만들 것입니다.
+- 이 프로젝트는 도커를 사용해서 시스템 관리에 대한 지식을 넓히는 것이 목표입니다. 새로운 가상 머신에서 여러 도커 이미지를 만들 것입니다.
 
 
 # page 4
