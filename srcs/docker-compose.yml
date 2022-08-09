@@ -38,7 +38,7 @@ services:  # 컨테이너에 관한 정의
           - mariadb
         build: ./requirements/wordpress
         container_name: wordpress  # 컨테이너 이름 == 서비스 이름
-        # restart: none
+        restart: always
         volumes:
             - wordpress:/var/www/html
         expose: 
