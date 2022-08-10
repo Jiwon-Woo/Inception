@@ -2,11 +2,19 @@ version: '3'
 
 volumes:
     db: {}
+      # driver_opts:
+      #       type: none
+      #       device: /home/jwoo/data/db
+      #       o: bind
     wordpress: {}
+      # driver_opts:
+      #       type: none
+      #       device: /home/jwoo/data/wordpress
+      #       o: bind
 services:  # 컨테이너에 관한 정의
     mariadb:
-        # image: debian:buster
         build: ./requirements/mariadb  # image 대신 해당 폴더에 있는 Dockerfile 구동
+        image: mariadb
         container_name: mariadb  # 컨테이너 이름 == 서비스 이름
         restart: always  # 컨테이너를 수동으로 끄기전까지 항상 재시작
                 # no: 수동으로 재시작 합니다.
@@ -23,6 +31,7 @@ services:  # 컨테이너에 관한 정의
         depends_on:
           - wordpress
         build: ./requirements/nginx
+        image: nginx
         container_name: nginx  # 컨테이너 이름 == 서비스 이름
         restart: always
         ports:
@@ -37,6 +46,7 @@ services:  # 컨테이너에 관한 정의
         depends_on:
           - mariadb
         build: ./requirements/wordpress
+        image: wordpress
         container_name: wordpress  # 컨테이너 이름 == 서비스 이름
         restart: always
         volumes:
