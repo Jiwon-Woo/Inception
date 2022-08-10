@@ -1,9 +1,11 @@
 #!/bin/bash
 
+chown -R mysql:mysql /var/lib/mysql
 mysql_install_db
-service mysql start
 
-mysql <<-EOSQL
+/usr/share/mysql/mysql.server start
+
+mysql -u root -p"root42" <<-EOSQL
 	USE mysql;
 	SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root42');
 	CREATE DATABASE IF NOT EXISTS wordpress;
@@ -12,13 +14,8 @@ mysql <<-EOSQL
 	FLUSH PRIVILEGES;
 EOSQL
 
+/usr/share/mysql/mysql.server status
+mysqladmin --user=root --password=root42 shutdown
+/usr/share/mysql/mysql.server status
 
-killall mysqld
-service mysqld stop
-# chmod 755 -R /var/lib/mysql/
-# chown -R mysql:mysql /var/lib/mysql/
-# mysql -u root -p"root42" mysql -S /var/run/mysqld/mysqld.sock
-exec mysqld_safe
-
-# service mysqld restart
-# mysqladmin -u root -p"root42"
+exec /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
