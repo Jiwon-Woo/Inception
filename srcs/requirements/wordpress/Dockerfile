@@ -21,5 +21,4 @@ RUN 	wget https://wordpress.org/latest.tar.gz \
 # 		&& mv wp-cli.phar /usr/local/bin/wp \
 # 		&& wp core download --version=5.8.1 --path=/var/www/wordpress
 
-# ENTRYPOINT ["/usr/sbin/php-fpm7.3", "-F"]
-CMD 	["bash", "/tmp/wordpress.sh"]
+ENTRYPOINT	["bash", "/tmp/wordpress.sh"]
