@@ -4,9 +4,9 @@ RUN 	apt-get update && apt-get -y upgrade \
 		&& apt-get -y install nginx openssl vim \
 		&& openssl req -newkey rsa:4096 -days 365 -nodes -x509 \
 			-subj "/C=KR/ST=Seoul/L=Seoul/O=42Seoul/OU=42Seoul/CN=localhost" \
-			-keyout localhost.dev.key -out localhost.dev.crt \
-		&& mv localhost.dev.crt etc/ssl/certs/ \
-		&& mv localhost.dev.key etc/ssl/private/
+			-keyout inception.key -out inception.crt \
+		&& mv inception.crt /etc/ssl/certs/ \
+		&& mv inception.key /etc/ssl/private/
 
 COPY	./conf/nginx.conf /etc/nginx/sites-enabled/default
 

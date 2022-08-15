@@ -4,8 +4,8 @@ RUN		apt-get update && apt-get -y upgrade \
 		&& apt-get -y install mariadb-server vim procps
 
 COPY	./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-COPY	./tools/sql.sh /tmp/sql.sh
+COPY	./tools/entrypoint.sh /tmp/entrypoint.sh
 
-RUN		chmod +x /tmp/sql.sh
+RUN		chmod +x /tmp/entrypoint.sh
 
-ENTRYPOINT	["/tmp/sql.sh"]
+ENTRYPOINT	["./tmp/entrypoint.sh"]

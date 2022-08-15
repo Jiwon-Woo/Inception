@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** MySQL database username */
-define( 'DB_USER', 'jwoo' );
+define( 'DB_USER', getenv('MARIADB_USER') );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'jwoo42' );
+define( 'DB_PASSWORD', getenv('MARIADB_PASSWORD') );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'mariadb' );
