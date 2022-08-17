@@ -15,7 +15,7 @@ clean:
 	$(SUDO) rm -rf ${VOLUME_PATH}
 fclean: clean
 	docker system prune --force --all
-	./$(TOOL_SH)
+#	./$(TOOL_SH)
 re: fclean all
 
 volume:
