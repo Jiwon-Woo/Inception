@@ -6,9 +6,9 @@ YAML = srcs/docker-compose.yml
 TOOL_SH = srcs/requirements/tools/tool.sh
 
 DOCKER_COMPOSE = docker-compose -p $(NAME) -f $(YAML)
-# SUDO = sudo
+SUDO = sudo
 
-all: volume #domain
+all: volume domain
 	$(DOCKER_COMPOSE) up -d --build
 clean:
 	$(DOCKER_COMPOSE) down --rmi all --volumes
