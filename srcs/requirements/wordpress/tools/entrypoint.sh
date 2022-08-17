@@ -2,9 +2,11 @@
 
 /etc/init.d/php7.3-fpm start
 
-curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-chmod +x wp-cli.phar
-mv wp-cli.phar /usr/local/bin/wp
+if [ ! -e /usr/local/bin/wp ]; then
+	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+	chmod +x wp-cli.phar
+	mv wp-cli.phar /usr/local/bin/wp
+fi
 
 if [ ! -e /var/www/html/wp-config.php ]; then
 	wp core download --allow-root --locale=ko_KR --version=5.8.1 --path=/var/www/html
