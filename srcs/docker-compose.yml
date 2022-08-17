@@ -49,19 +49,19 @@ services:
     tty: true
 
 volumes:
-  db: {}
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   o: bind
-    #   device: ${VOLUME_PATH_DB}
+  db: #{}
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${VOLUME_PATH_DB}
 
-  wp: {}
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   o: bind
-    #   device: ${VOLUME_PATH_WP}
+  wp: #{}
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${VOLUME_PATH_WP}
 
 networks:
   intra:
