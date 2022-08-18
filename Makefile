@@ -38,4 +38,4 @@ stop:
 	$(DOCKER_COMPOSE) stop
 
 
-.PHONY: all clean re volume up down start stop
+.PHONY: all clean fclean re volume domain up down start stop
